@@ -2,6 +2,8 @@ import json
 from datetime import datetime
 from pytz import timezone
 
+# Inspired from: https://gist.github.com/abhinav-upadhyay/5300137
+
 TYPE = '__type__'
 DATETIME = 'datetime'
 
