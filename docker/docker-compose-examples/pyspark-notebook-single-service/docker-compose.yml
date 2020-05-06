@@ -1,0 +1,11 @@
+version: '3'
+services:
+  my-pyspark-notebook:
+    # In PyCharm, you can Command+Click on this to go the Docker Hub page.
+    # PyCharm also auto-completes the image name!
+    image: "jupyter/pyspark-notebook"
+    ports:
+      - "8888:8888"
+      - "4040-4080:4040-4080"
+    volumes:
+      - .:/home/jovyan/work

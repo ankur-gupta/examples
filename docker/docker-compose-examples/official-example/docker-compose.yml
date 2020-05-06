@@ -1,0 +1,20 @@
+version: '3'
+services:
+  # Service #1 aka "web" : Use the Dockerfile in the current directory
+  # Bind the container's port 5000 to the host's port 5000.
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      # This lets you modify code on the fly without having to rebuild image
+      - .:/code
+    environment:
+      # This is important because this tells `flask run` to run in development
+      # mode and reload the code on change. Don't use for production.
+      FLASK_ENV: development
+
+  # Service #2 aka "redis": Use the dockerfile "redis:alpine" from Docker Hub
+  # https://registry.hub.docker.com/_/redis/
+  redis:
+    image: "redis:alpine"
